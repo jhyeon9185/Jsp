@@ -19,6 +19,7 @@ public class IdCheckServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		// userid 받아서, DB에서 같은 값 있는지 중복체크, 없으면 사용가능
 		String userid = request.getParameter("userid");
 		

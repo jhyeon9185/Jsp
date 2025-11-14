@@ -186,5 +186,6 @@ public class MemberDAO {
 		}// end finally
 		
 		return result;		
+		
 	}// end confirmID
 }

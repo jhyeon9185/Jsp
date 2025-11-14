@@ -24,7 +24,13 @@ public class JoinServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		String name = request.getParameter("name");
+		String userid = request.getParameter("userid");
+		String pwd = request.getParameter("pwd");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");		
+		int admin = Integer.parseInt(request.getParameter("admin"));		
 	}
 
 }

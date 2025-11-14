@@ -1,33 +1,64 @@
-
-function loginCheck(){
-	
-	if(document.frm.userid.value.length == 0){
-		alert("아이디를 입력해주세요.");
+function loginCheck() {
+	if (document.frm.userid.value.length == 0) {
+		alert("아이디를 써주세요");
 		frm.userid.focus();
 		return false;
-		
-	}// id if
-	
-	if(document.frm.pwd.value==""){
-		alert("비밀번호를 입력해주세요.");
+	}
+	if (document.frm.pwd.value == "") {
+		alert("암호는 반드시 입력해야 합니다.");
 		frm.pwd.focus();
 		return false;
-			
-	}// pwd if
-	
-	return true;
-	
-}// function
-
-function idCheck(){
-	if(document.frm.userid.value == ""){
-		alert("아이디를 입력해주세요.");
-		frm.userid.focus();
-		return ;
 	}
-	
-	let url = "idCheck.do?userid=" + document.frm.userid.value;
-	
-	// 새로운 브라우저 창 열린다.
-	window.open(url, "_blank_1", "toolbar=no, scrollbox=yse, resizable-no, width=450, hieght=200");
+	return true;
+}
+
+function idCheck() {
+	if (document.frm.userid.value == "") {
+		alert('아이디를 입력하여 주십시오.');
+		document.formm.userid.focus();
+		return;
+	}
+	var url = "idCheck.do?userid=" + document.frm.userid.value;
+	window.open(url, "_blank_1",
+		"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
+}
+
+function idok(userid) {
+	opener.frm.userid.value = document.frm.userid.value;
+	opener.frm.reid.value = document.frm.userid.value;
+	self.close();
+}
+
+function joinCheck() {
+	if (document.frm.name.value.length == 0) {
+		alert("이름을 써주세요.");
+		frm.name.focus();
+		return false;
+	}
+	if (document.frm.userid.value.length == 0) {
+		alert("아이디를 써주세요");
+		frm.userid.focus();
+		return false;
+	}
+	if (document.frm.userid.value.length < 3) {
+		alert("아이디는 3글자이상이어야 합니다.");
+		frm.userid.focus();
+		return false;
+	}
+	if (document.frm.pwd.value == "") {
+		alert("암호는 반드시 입력해야 합니다.");
+		frm.pwd.focus();
+		return false;
+	}
+	if (document.frm.pwd.value != document.frm.pwd_check.value) {
+		alert("암호가 일치하지 않습니다.");
+		frm.pwd.focus();
+		return false;
+	}
+	if (document.frm.reid.value.length == 0) {
+		alert("중복 체크를 하지 않았습니다.");
+		frm.userid.focus();
+		return false;
+	}
+	return true;
 }
